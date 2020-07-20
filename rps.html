@@ -24,20 +24,53 @@
 
         if(playerSelection === "rock" && computerSelection === "paper"){
             finalAnswer = "You Lose!  Paper covers rock"
+            score = 0
         }else if(playerSelection === "paper" && computerSelection === "rock"){
             finalAnswer = "You Win! Paper covers rock"
+            score = 1
         }else if(playerSelection === "scissors" && computerSelection === "rock"){
             finalAnswer = "You Lose! Rock crushes scissors"
+            score = 0
         }else if(playerSelection === "rock" && computerSelection === "scissors"){
             finalAnswer = "You Win! Rock crushes scissors"
+            score = 1
         }else if(playerSelection === "scissors" && computerSelection === "paper"){
             finalAnswer = "You Win! Scissors cuts paper"
+            score = 1
         }else if(playerSelection === "paper" && computerSelection === "scissors"){
             finalAnswer = "You Lose! Scissors cuts paper"
+            score = 0
         }else{
             finalAnswer = "It is a tie!"
+            score = 2
         }
 
-        return finalAnswer
+        console.log(finalAnswer)
+        console.log(score)
+        return score
+    }
+
+    function game(){
+        round = 0
+        playerScore = 0
+        computerScore = 0
+
+        while(round <= 4){
+            round++
+            console.log("Round: " + round)
+            playRound()
+            
+            if(score === 1){
+                playerScore++
+                console.log("Player: " + playerScore + " Computer: " + computerScore)
+            }else if(score === 0){
+                computerScore++
+                console.log("Player: " + playerScore + " Computer: " + computerScore)
+            }else {
+                console.log("Player: " + playerScore + " Computer: " + computerScore)
+            }
+
+            
+        }
     }
 </script>
