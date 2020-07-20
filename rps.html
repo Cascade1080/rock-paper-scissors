@@ -1,17 +1,43 @@
 <script>
+
     function computerPlay(){
         num = Math.random() * 2
         fixednum = Math.round(num)
 
         if(fixednum == 0){
-            answer = "Rock"
+            answer = "rock"
         } else if(fixednum == 1){
-            answer = "Paper"
+            answer = "paper"
         } else if(fixednum == 2){
-            answer = "Scissors"
+            answer = "scissors"
         }
         return answer
     }
-    
 
+
+    function playRound(playerSelection, computerSelection){
+        playerSelection = window.prompt("Rock, Paper, Scissors...Shoot!")
+        playerSelection = playerSelection.toLowerCase()
+        console.log("The player has selected " + playerSelection)
+        computerSelection = computerPlay()
+        console.log("The computer has selected " + computerSelection)
+
+        if(playerSelection === "rock" && computerSelection === "paper"){
+            finalAnswer = "You Lose!  Paper covers rock"
+        }else if(playerSelection === "paper" && computerSelection === "rock"){
+            finalAnswer = "You Win! Paper covers rock"
+        }else if(playerSelection === "scissors" && computerSelection === "rock"){
+            finalAnswer = "You Lose! Rock crushes scissors"
+        }else if(playerSelection === "rock" && computerSelection === "scissors"){
+            finalAnswer = "You Win! Rock crushes scissors"
+        }else if(playerSelection === "scissors" && computerSelection === "paper"){
+            finalAnswer = "You Win! Scissors cuts paper"
+        }else if(playerSelection === "paper" && computerSelection === "scissors"){
+            finalAnswer = "You Lose! Scissors cuts paper"
+        }else{
+            finalAnswer = "It is a tie!"
+        }
+
+        return finalAnswer
+    }
 </script>
